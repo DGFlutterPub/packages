@@ -1,0 +1,80 @@
+name: dghub_picker
+description: Min Thant Htet.
+version: 0.0.5
+homepage: https://pub.dghub.in
+repository: https://github.com/DGFlutterPub/dghub_picker
+issue_tracker: https://github.com/DGFlutterPub/dghub_picker/issues
+
+
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependency_overrides:
+  dghub_image:
+    path: ../dghub_image
+
+dependencies:
+  country_picker: ^2.0.22
+  currency_picker: ^2.0.19
+
+  file_picker: ^6.1.1
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.6.0
+  iconsax: ^0.0.8
+  marquee_widget: ^1.2.0
+  path_provider: ^2.1.1
+  universal_io: ^2.2.2
+  dghub_edittext: ^0.0.1
+  dghub_listview: ^0.0.2
+  flutter_colorpicker:
+    git:
+      url: https://github.com/mchome/flutter_colorpicker
+      ref: master  # or 786d04363f587b818ce585d25b9c2bb62de95aba
+  language_picker:
+    git: 
+      url: https://github.com/bigzhu/language_picker.git
+  custom_thumbnail_video: ^0.6.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  # To add assets to your package, add an assets section, like this:
+  #assets:
+  #  - assets/
+  #   - images/a_dot_ham.jpeg
+  #
+  # For details regarding assets in packages, see
+  # https://flutter.dev/assets-and-images/#from-packages
+  #
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # To add custom fonts to your package, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts in packages, see
+  # https://flutter.dev/custom-fonts/#from-packages
