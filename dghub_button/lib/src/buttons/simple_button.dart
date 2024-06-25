@@ -3,17 +3,17 @@ import 'package:dghub_button/src/tools/tools.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-class DefaultButton extends StatefulWidget {
+class SimpleButton extends StatefulWidget {
   final ButtonConfig config;
-  const DefaultButton({required this.config, super.key});
+  const SimpleButton({required this.config, super.key});
 
   @override
-  State<DefaultButton> createState() => _DefaultButtonState();
+  State<SimpleButton> createState() => _SimpleButtonState();
 }
 
-class _DefaultButtonState extends State<DefaultButton> {
+class _SimpleButtonState extends State<SimpleButton> {
   @override
-  void didUpdateWidget(covariant DefaultButton oldWidget) {
+  void didUpdateWidget(covariant SimpleButton oldWidget) {
     super.didUpdateWidget(oldWidget);
   }
 
