@@ -56,14 +56,20 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "gradient_borders",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/gradient_borders-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "leak_tracker",
-      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/leak_tracker-10.0.4",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/leak_tracker-10.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
     {
       "name": "leak_tracker_flutter_testing",
-      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/leak_tracker_flutter_testing-3.0.3",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/leak_tracker_flutter_testing-3.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -93,13 +99,13 @@
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/material_color_utilities-0.8.0",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/material_color_utilities-0.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/meta-1.12.0",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/meta-1.15.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -108,6 +114,12 @@
       "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/path-1.9.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "shimmer_animation",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/shimmer_animation-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
     },
     {
       "name": "sky_engine",
@@ -147,9 +159,9 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/test_api-0.7.0",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/test_api-0.7.2",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "vector_math",
@@ -159,7 +171,7 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/vm_service-14.2.1",
+      "rootUri": "file:///Users/advancer/.pub-cache/hosted/pub.dev/vm_service-14.2.5",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -170,10 +182,10 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-06-04T15:18:58.407852Z",
+  "generated": "2024-11-23T11:25:41.851751Z",
   "generator": "pub",
-  "generatorVersion": "3.4.1",
+  "generatorVersion": "3.5.4",
   "flutterRoot": "file:///usr/local/Caskroom/flutter/3.19.3/flutter",
-  "flutterVersion": "3.22.1",
+  "flutterVersion": "3.24.4",
   "pubCache": "file:///Users/advancer/.pub-cache"
 }

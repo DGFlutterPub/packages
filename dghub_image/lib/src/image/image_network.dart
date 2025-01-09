@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:network_image_plus/network_image_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import '../loading/loading_shimmer.dart';
 
@@ -28,6 +29,26 @@ class ImageNetwork extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return IgnorePointer(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(radius),
+          child: NetworkImagePlus(
+            errorBuilder: (context, error, stackTrace) {
+              return LoadingShimmer(
+                width: width,
+                height: height,
+              );
+            },
+            url: load,
+            width: width,
+            height: height,
+            fit: fit,
+          ),
+        ),
+      );
+    }
+
     return ClipRRect(
         borderRadius: BorderRadius.circular(radius),
         child: CachedNetworkImage(

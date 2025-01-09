@@ -7,16 +7,18 @@ environment:
   sdk: ">=3.2.0 <4.0.0"
   flutter: ">=1.17.0"
 
+dependency_overrides:
+  dghub_button:
+    path: ../dghub_button
+  dghub_edittext:
+    path: ../dghub_edittext
+  dghub_tab:
+    path: ../dghub_tab
+  dghub_picker:
+    path: ../dghub_picker
 dependencies:
   flutter:
     sdk: flutter
-  dghub_tab: ^0.0.1
-  dghub_edittext: ^0.0.7
-  dghub_button: ^0.0.4
-  dghub_picker:
-    git:
-      url: https://github.com/DGFlutterPub/dghub_picker.git
-      ref: 2ca92e0
   lottie: ^3.1.2
   google_sign_in: ^6.2.1
   provider: ^6.1.1

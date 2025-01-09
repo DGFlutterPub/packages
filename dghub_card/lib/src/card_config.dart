@@ -6,13 +6,21 @@ class CardConfig {
   double? width;
   double? height;
   EdgeInsets? padding;
-  Color? color;
-  BorderRadius? border;
+  EdgeInsets? margin;
+  BorderRadius? radius;
+  double? border;
+  List<Color> colors;
+  List<Color> borderColors;
+  Alignment alignment;
   CardConfig(
       {this.padding,
-      this.color,
-      this.border,
+      this.margin,
+      this.radius,
       this.width,
       this.height,
+      this.alignment = Alignment.topLeft,
+      this.border,
+      this.colors = const [],
+      this.borderColors = const [],
       this.onTap});
 }

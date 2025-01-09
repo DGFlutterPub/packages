@@ -19,7 +19,7 @@ dependencies:
   country_picker: ^2.0.22
   currency_picker: ^2.0.19
 
-  file_picker: ^6.1.1
+  file_picker: ^8.1.6 
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
@@ -36,7 +36,8 @@ dependencies:
   language_picker:
     git: 
       url: https://github.com/bigzhu/language_picker.git
-  custom_thumbnail_video: ^0.6.3
+  get_thumbnail_video: ^0.7.3
+
 
 dev_dependencies:
   flutter_test:

@@ -45,17 +45,10 @@ class _LocationDesignBottomBarState extends State<LocationDesignBottomBar>
           widget.config.result(index);
         },
         child: Container(
-          color: isActive
-              ? Tools.isDarkTheme(context)
-                  ? widget.config.backgroundColorDarkTheme
-                  : widget.config.backgroundColor
-              : Tools.isDarkTheme(context)
-                  ? widget.config.backgroundColorDarkTheme == null
-                      ? theme.primaryColor
-                      : widget.config.backgroundColorDarkTheme!.withOpacity(0.5)
-                  : widget.config.backgroundColor == null
-                      ? theme.primaryColor
-                      : widget.config.backgroundColor!.withOpacity(0.5),
+          decoration: BoxDecoration(
+              gradient: Tools.gradient(
+                  widget.config.backgroundColors ?? [theme.primaryColor])),
+
           //width: 75.0,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -69,29 +62,19 @@ class _LocationDesignBottomBarState extends State<LocationDesignBottomBar>
                   enabledBadage: widget.config.items[index].enabledBadage,
                   badageLabel: widget.config.items[index].badageLabel,
                   badageColor: widget.config.items[index].badageColor,
-                  iconColor: isActive
-                      ? Tools.isDarkTheme(context)
-                          ? widget.config.selectedIconColorDarkTheme ??
-                              theme.primaryColor
-                          : widget.config.selectedIconColor ??
-                              theme.primaryColor
-                      : Tools.isDarkTheme(context)
-                          ? widget.config.unSelectedIconColorDarkTheme
-                          : widget.config.unSelectedIconColor,
+                  iconColors: isActive
+                      ? widget.config.selectedIconColors ?? [theme.primaryColor]
+                      : widget.config.unSelectedIconColors,
                   icon: widget.config.items[index].selectedIcon,
                   iconSize: 20),
               Text(widget.config.items[index].label,
                   style: TextStyle(
                       fontSize: 12,
                       color: isActive
-                          ? Tools.isDarkTheme(context)
-                              ? widget.config.selectedLabelColorDarkTheme ??
-                                  theme.primaryColor
-                              : widget.config.selectedLabelColor ??
-                                  theme.primaryColor
-                          : Tools.isDarkTheme(context)
-                              ? widget.config.unSelectedLabelColorDarkTheme
-                              : widget.config.unSelectedLabelColor)),
+                          ? widget.config.selectedLabelColors?.first ??
+                              theme.primaryColor
+                          : widget.config.unSelectedLabelColors?.first ??
+                              Colors.grey)),
             ],
           ),
         ),

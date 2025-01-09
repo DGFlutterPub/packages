@@ -1,10 +1,10 @@
-import 'package:custom_thumbnail_video/index.dart';
-import 'package:custom_thumbnail_video/video_thumbnail.dart';
 import 'package:dghub_image/dghub_image.dart';
 import 'package:dghub_picker/src/tools/tools.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_thumbnail_video/index.dart';
+import 'package:get_thumbnail_video/video_thumbnail.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:marquee_widget/marquee_widget.dart';
 import 'package:path_provider/path_provider.dart';
@@ -65,8 +65,11 @@ class _DGHubVideoPickerSingleState extends State<DGHubVideoPickerSingle> {
       child: Container(
         padding: const EdgeInsets.all(3),
         decoration: BoxDecoration(
-            color: theme.colorScheme.surface,
-            border: Border.all(width: 0.3, color: Colors.grey),
+            color: theme.cardColor,
+            border: Border.all(
+                width: 0.3,
+                color:
+                    Tools.isDarkTheme(context) ? Colors.white : Colors.black),
             borderRadius: BorderRadius.circular(10)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -83,7 +86,10 @@ class _DGHubVideoPickerSingleState extends State<DGHubVideoPickerSingle> {
                           borderRadius: BorderRadius.circular(10)),
                       width: widget.videoWidth,
                       height: widget.videoHeight,
-                      child: const Icon(Iconsax.video_add, color: Colors.grey));
+                      child: Icon(Iconsax.video_add,
+                          color: Tools.isDarkTheme(context)
+                              ? Colors.white
+                              : Colors.black));
                 }
 
                 if (bytes != null) {
@@ -101,8 +107,10 @@ class _DGHubVideoPickerSingleState extends State<DGHubVideoPickerSingle> {
                                 borderRadius: BorderRadius.circular(10)),
                             width: widget.videoWidth,
                             height: widget.videoHeight,
-                            child: const Icon(Iconsax.gallery_import,
-                                color: Colors.grey));
+                            child: Icon(Iconsax.gallery_import,
+                                color: Tools.isDarkTheme(context)
+                                    ? Colors.white
+                                    : Colors.black));
                       },
                     ),
                   );
@@ -128,8 +136,10 @@ class _DGHubVideoPickerSingleState extends State<DGHubVideoPickerSingle> {
                                             BorderRadius.circular(10)),
                                     width: widget.videoWidth,
                                     height: widget.videoHeight,
-                                    child: const Icon(Iconsax.gallery_import,
-                                        color: Colors.grey));
+                                    child: Icon(Iconsax.gallery_import,
+                                        color: Tools.isDarkTheme(context)
+                                            ? Colors.white
+                                            : Colors.black));
                               },
                             ),
                           );

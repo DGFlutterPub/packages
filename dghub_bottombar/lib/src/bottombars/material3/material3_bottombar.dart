@@ -29,38 +29,19 @@ class _Material3BottomBarState extends State<Material3BottomBar>
           child: NavigationBarTheme(
             data: NavigationBarThemeData(
               iconTheme: WidgetStateProperty.resolveWith<IconThemeData>(
-                (Set<WidgetState> states) => IconThemeData(
-                  color: states.contains(WidgetState.selected)
-                      ? Tools.isDarkTheme(context)
-                          ? widget.config.selectedIconColorDarkTheme
-                          : widget.config.selectedIconColor
-                      : Tools.isDarkTheme(context)
-                          ? widget.config.unSelectedIconColorDarkTheme
-                          : widget.config.unSelectedIconColor,
-                ),
+                (Set<WidgetState> states) => IconThemeData(),
               ),
               labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
                 (Set<WidgetState> states) =>
                     states.contains(WidgetState.selected)
-                        ? TextStyle(
-                            color: Tools.isDarkTheme(context)
-                                ? widget.config.selectedLabelColorDarkTheme
-                                : widget.config.selectedLabelColor)
-                        : TextStyle(
-                            color: Tools.isDarkTheme(context)
-                                ? widget.config.unSelectedLabelColorDarkTheme
-                                : widget.config.unSelectedLabelColor),
+                        ? TextStyle()
+                        : TextStyle(),
               ),
             ),
             child: NavigationBar(
-                indicatorColor: Tools.isDarkTheme(context)
-                    ? widget.config.cardColorDarkTheme
-                    : widget.config.cardColor,
+
                 //  height: widget.config.height ?? 70,
                 elevation: 0,
-                backgroundColor: Tools.isDarkTheme(context)
-                    ? widget.config.backgroundColorDarkTheme
-                    : widget.config.backgroundColor,
                 destinations: widget.config.items
                     .map((data) => NavigationDestination(
                         label: data.label,

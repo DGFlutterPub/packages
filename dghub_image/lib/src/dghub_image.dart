@@ -35,7 +35,7 @@ class DGHubImage extends StatelessWidget {
       this.enableCacheMode = true,
       super.key});
 
-  static network(
+  static Widget network(
           {Function()? onTap,
           required String load,
           double? width,
@@ -45,7 +45,7 @@ class DGHubImage extends StatelessWidget {
           bool enableCacheMode = true}) =>
       ImageNetwork(
         fit: fit,
-        load: Tools.getHostUrl(load).toString(),
+        load: load,
         radius: radius,
         height: height,
         width: width,
@@ -53,7 +53,7 @@ class DGHubImage extends StatelessWidget {
         enableCacheMode: enableCacheMode,
       );
 
-  static file(
+  static Widget file(
           {Function()? onTap,
           required File load,
           double? width,
@@ -68,7 +68,7 @@ class DGHubImage extends StatelessWidget {
           width: width,
           onTap: onTap);
 
-  static asset(
+  static Widget asset(
           {Function()? onTap,
           required String load,
           double? width,
@@ -83,7 +83,7 @@ class DGHubImage extends StatelessWidget {
           width: width,
           onTap: onTap);
 
-  static byte(
+  static Widget byte(
           {Function()? onTap,
           required Uint8List load,
           double? width,
@@ -120,7 +120,7 @@ class DGHubImage extends StatelessWidget {
     if (autoLoad.contains('http://') || autoLoad.contains('https://')) {
       return ImageNetwork(
         fit: fit,
-        load: Tools.getHostUrl(autoLoad).toString(),
+        load: autoLoad,
         radius: radius,
         height: height,
         width: width,

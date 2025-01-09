@@ -89,7 +89,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                                   fontSize: 12, color: theme.primaryColor),
                             )),
                         DGHubButton(
-                            type: DGHubButtonType.circle,
+                            design: DGHubButtonDesigns.circle,
                             config: ButtonConfig(
                                 isSuccess: widget.config.isSuccessVerification,
                                 isLoading: widget.config.isLoadingVerification,

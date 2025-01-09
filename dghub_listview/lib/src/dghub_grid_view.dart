@@ -26,7 +26,7 @@ class DGHubGridView extends StatelessWidget {
   final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
   final String? restorationId;
   final Clip clipBehavior;
-  final Function()? onRefresh;
+  final Future<void> Function()? onRefresh;
   final Function()? onPaginate;
   final int paginateCount;
   const DGHubGridView(
@@ -85,7 +85,7 @@ class DGHubGridView extends StatelessWidget {
             clipBehavior: clipBehavior);
       }
       return RefreshIndicator(
-          onRefresh: () => onRefresh!(),
+          onRefresh: onRefresh!,
           child: CGList(
               paginateCount: paginateCount,
               onPaginate: onPaginate,
@@ -201,7 +201,10 @@ class CGList extends StatelessWidget {
               return ListAnimationItem(
                   enabledAnimation: enabledAnimation,
                   index: index,
-                  child: itemBuilder(context, index));
+                  child: Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      alignment: Alignment.center,
+                      child: itemBuilder(context, index)));
             },
             itemCount: itemCount,
             crossAxisCount: gridCount,

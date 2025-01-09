@@ -38,6 +38,7 @@ class _DGHubColorPickerButtonState extends State<DGHubColorPickerButton> {
             context: context,
             builder: (context) {
               return Dialog(
+                  backgroundColor: theme.cardColor,
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15))),
                   child: DGHubColorPicker(
@@ -54,9 +55,9 @@ class _DGHubColorPickerButtonState extends State<DGHubColorPickerButton> {
       },
       child: Container(
         decoration: BoxDecoration(
-            border: Border.all(width: 0.3, color: Colors.grey),
+            border: Border.all(width: 1, color: Colors.grey.withOpacity(0.5)),
             borderRadius: BorderRadius.circular(10),
-            color: theme.colorScheme.surface),
+            color: theme.cardColor),
         child: Row(
           children: [
             Container(
@@ -68,7 +69,7 @@ class _DGHubColorPickerButtonState extends State<DGHubColorPickerButton> {
                   borderRadius: BorderRadius.circular(10),
                   color: widget.input != null
                       ? widget.input!
-                      : color ?? theme.primaryColor),
+                      : color ?? Colors.blue),
               child: const Icon(
                 Icons.colorize,
                 size: 20,
@@ -97,6 +98,13 @@ class _DGHubColorPickerButtonState extends State<DGHubColorPickerButton> {
                 ],
               ),
             ),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 15,
+            ),
+            SizedBox(
+              width: 15,
+            )
           ],
         ),
       ),

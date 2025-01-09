@@ -2,18 +2,12 @@ import 'package:dghub_bottombar/src/model/bottombar_icon.dart';
 import 'package:flutter/material.dart';
 
 class BottomBarConfig {
-  Color? backgroundColor;
-  Color? backgroundColorDarkTheme;
-  Color? cardColor;
-  Color? cardColorDarkTheme;
-  Color? selectedIconColor;
-  Color? unSelectedIconColor;
-  Color? selectedIconColorDarkTheme;
-  Color? unSelectedIconColorDarkTheme;
-  Color? selectedLabelColor;
-  Color? unSelectedLabelColor;
-  Color? selectedLabelColorDarkTheme;
-  Color? unSelectedLabelColorDarkTheme;
+  List<Color>? backgroundColors;
+  List<Color>? cardColors;
+  List<Color>? selectedIconColors;
+  List<Color>? unSelectedIconColors;
+  List<Color>? selectedLabelColors;
+  List<Color>? unSelectedLabelColors;
   List<DGHubBottomBarIcon> items;
   double? height;
   Widget? profileWidget;
@@ -24,18 +18,12 @@ class BottomBarConfig {
   BottomBarConfig({
     this.height,
     this.onTap,
-    this.backgroundColor,
-    this.backgroundColorDarkTheme,
-    this.cardColor,
-    this.cardColorDarkTheme,
-    this.selectedIconColor,
-    this.selectedIconColorDarkTheme,
-    this.unSelectedIconColor,
-    this.unSelectedIconColorDarkTheme,
-    this.selectedLabelColor,
-    this.selectedLabelColorDarkTheme,
-    this.unSelectedLabelColor,
-    this.unSelectedLabelColorDarkTheme,
+    this.backgroundColors,
+    this.cardColors,
+    this.selectedIconColors,
+    this.unSelectedIconColors,
+    this.selectedLabelColors,
+    this.unSelectedLabelColors,
     required this.items,
     this.profileWidget,
     this.enabledProfile = true,

@@ -9,11 +9,12 @@ countryPicker(
   final theme = Theme.of(context);
   return showCountryPicker(
     countryListTheme: CountryListThemeData(
+      margin: EdgeInsets.only(top: 65),
       inputDecoration: InputDecoration(
           filled: true,
-          fillColor: theme.colorScheme.surface,
+          fillColor: theme.scaffoldBackgroundColor,
           contentPadding: const EdgeInsets.fromLTRB(0, 12, 12, 12),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           errorBorder: InputBorder.none,
@@ -23,7 +24,8 @@ countryPicker(
           hintText: 'Search'),
       searchTextStyle: TextStyle(
           color: Tools.isDarkTheme(context) ? Colors.white : Colors.black),
-      borderRadius: BorderRadius.circular(30),
+      borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       backgroundColor: theme.cardColor,
       textStyle: TextStyle(
           color: Tools.isDarkTheme(context) ? Colors.white : Colors.black),

@@ -82,7 +82,7 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       DGHubButton(
-                          type: DGHubButtonType.circle,
+                          design: DGHubButtonDesigns.circle,
                           config: ButtonConfig(
                               isSuccess: widget.config.isSuccess,
                               isLoading: widget.config.isLoading,

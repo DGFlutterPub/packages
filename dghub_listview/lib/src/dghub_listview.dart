@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class DGHubListView extends StatelessWidget {
   final bool enabledAnimation;
-  final Function()? onRefresh;
+  final Future<void> Function()? onRefresh;
   final Function()? onPaginate;
   final Axis scrollDirection;
   final bool reverse;
@@ -82,7 +82,10 @@ class DGHubListView extends StatelessWidget {
             itemCount: itemCount);
       }
       return RefreshIndicator(
-        onRefresh: () => onRefresh!(),
+        // notificationPredicate: (notification) {
+
+        //  },
+        onRefresh: onRefresh!,
         child: CList(
             paginateCount: paginateCount,
             onPaginate: onPaginate,
@@ -101,8 +104,7 @@ class DGHubListView extends StatelessWidget {
             restorationId: restorationId,
             clipBehavior: clipBehavior,
             shrinkWrap: shrinkWrap,
-            physics: physics ??
-                const AlwaysScrollableScrollPhysics(),
+            physics: physics ?? const AlwaysScrollableScrollPhysics(),
             padding: padding,
             itemBuilder: itemBuilder,
             separatorBuilder: separatorBuilder,
@@ -174,7 +176,7 @@ class CList extends StatelessWidget {
             return true;
           }
         }
-        return true;
+        return false;
       },
       child: ListAnimation(
         enabledAnimation: enabledAnimation,
@@ -201,19 +203,18 @@ class CList extends StatelessWidget {
                   index: index,
                   child: itemBuilder(context, index));
             },
-            separatorBuilder: separatorBuilder == null
-                ? (context, index) {
-                    if (scrollDirection == Axis.horizontal) {
-                      return const SizedBox(
-                        width: 10,
-                      );
-                    } else {
-                      return const SizedBox(
-                        height: 10,
-                      );
-                    }
+            separatorBuilder: separatorBuilder ??
+                (context, index) {
+                  if (scrollDirection == Axis.horizontal) {
+                    return const SizedBox(
+                      width: 10,
+                    );
+                  } else {
+                    return const SizedBox(
+                      height: 10,
+                    );
                   }
-                : separatorBuilder!,
+                },
             itemCount: itemCount),
       ),
     );

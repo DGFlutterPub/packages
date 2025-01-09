@@ -42,8 +42,11 @@ class _DGHubImagePickerSingleState extends State<DGHubImagePickerSingle> {
       child: Container(
         padding: const EdgeInsets.all(3),
         decoration: BoxDecoration(
-            color: theme.colorScheme.surface,
-            border: Border.all(width: 0.3, color: Colors.grey),
+            color: theme.cardColor,
+            border: Border.all(
+                width: 0.3,
+                color:
+                    Tools.isDarkTheme(context) ? Colors.white : Colors.black),
             borderRadius: BorderRadius.circular(10)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -52,7 +55,7 @@ class _DGHubImagePickerSingleState extends State<DGHubImagePickerSingle> {
             Builder(
               builder: (context) {
                 if (filePath == null &&
-                    widget.imageUrl == null &&
+                    (widget.imageUrl == null || widget.imageUrl == '') &&
                     bytes == null) {
                   return Container(
                       decoration: BoxDecoration(
@@ -60,8 +63,10 @@ class _DGHubImagePickerSingleState extends State<DGHubImagePickerSingle> {
                           borderRadius: BorderRadius.circular(10)),
                       width: widget.imageWidth,
                       height: widget.imageHeight,
-                      child: const Icon(Iconsax.gallery_import,
-                          color: Colors.grey));
+                      child: Icon(Iconsax.gallery_import,
+                          color: Tools.isDarkTheme(context)
+                              ? Colors.white
+                              : Colors.black));
                 }
 
                 if (bytes != null) {
@@ -79,8 +84,10 @@ class _DGHubImagePickerSingleState extends State<DGHubImagePickerSingle> {
                                 borderRadius: BorderRadius.circular(10)),
                             width: widget.imageWidth,
                             height: widget.imageHeight,
-                            child: const Icon(Iconsax.gallery_import,
-                                color: Colors.grey));
+                            child: Icon(Iconsax.gallery_import,
+                                color: Tools.isDarkTheme(context)
+                                    ? Colors.white
+                                    : Colors.black));
                       },
                     ),
                   );
@@ -101,8 +108,10 @@ class _DGHubImagePickerSingleState extends State<DGHubImagePickerSingle> {
                                 borderRadius: BorderRadius.circular(10)),
                             width: widget.imageWidth,
                             height: widget.imageHeight,
-                            child: const Icon(Iconsax.gallery_import,
-                                color: Colors.grey));
+                            child: Icon(Iconsax.gallery_import,
+                                color: Tools.isDarkTheme(context)
+                                    ? Colors.white
+                                    : Colors.black));
                       },
                     ),
                   );
@@ -126,7 +135,8 @@ class _DGHubImagePickerSingleState extends State<DGHubImagePickerSingle> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Builder(builder: (context) {
-                      if (filePath == null && widget.imageUrl == null) {
+                      if (filePath == null &&
+                          (widget.imageUrl == null || widget.imageUrl == '')) {
                         return Marquee(
                           child: const Text(
                             'Click to pick a photo',

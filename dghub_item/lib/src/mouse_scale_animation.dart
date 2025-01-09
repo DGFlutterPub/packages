@@ -1,3 +1,4 @@
+import 'package:dghub_item/src/tools/tools.dart';
 import 'package:flutter/material.dart';
 
 class MouseScaleAnimation extends StatefulWidget {
@@ -19,6 +20,11 @@ class _MouseScaleAnimationState extends State<MouseScaleAnimation> {
   Offset mousPos = const Offset(0, 0);
   @override
   Widget build(BuildContext context) {
+    if (Tools.isMobile(context)) {
+      return SizedBox(
+          width: widget.width, height: widget.height, child: widget.child);
+    }
+
     return MouseRegion(
       onEnter: (event) {
         setState(() {

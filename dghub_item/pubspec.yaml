@@ -7,6 +7,13 @@ environment:
   sdk: '>=3.4.1 <4.0.0'
   flutter: ">=1.17.0"
 
+
+dependency_overrides:
+  dghub_image:
+    path: ../dghub_image
+  dghub_video_player:
+    path: ../dghub_video_player
+
 dependencies:
   flutter:
     sdk: flutter

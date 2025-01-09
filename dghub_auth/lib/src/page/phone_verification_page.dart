@@ -122,7 +122,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                 ),
                 const SizedBox(height: 20),
                 DGHubButton(
-                    type: DGHubButtonType.circle,
+                    design: DGHubButtonDesigns.circle,
                     config: ButtonConfig(
                         isSuccess: widget.config.isSuccessVerification,
                         isLoading: widget.config.isLoadingVerification,

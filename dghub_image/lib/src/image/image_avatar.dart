@@ -1,4 +1,5 @@
 import 'package:dghub_image/src/tools/enums.dart';
+import 'package:dghub_image/src/tools/tools.dart';
 import 'package:flutter/material.dart';
 
 class ImageAvatar extends StatelessWidget {
@@ -25,8 +26,8 @@ class ImageAvatar extends StatelessWidget {
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.brown,
-              borderRadius: BorderRadius.circular(100),
+              color: context.isDarkTheme ? Colors.white : Colors.black,
+              borderRadius: BorderRadius.circular(radius),
             ),
             width: width ?? 50,
             height: height ?? 50,
@@ -34,8 +35,11 @@ class ImageAvatar extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: Center(
                   child: Text(text.isEmpty ? 'N' : text[0].toUpperCase(),
-                      style:
-                          const TextStyle(fontSize: 18, color: Colors.white))),
+                      style: TextStyle(
+                        color:
+                            context.isDarkTheme ? Colors.black : Colors.white,
+                        fontSize: 18,
+                      ))),
             ),
           ),
         );

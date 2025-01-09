@@ -1,1 +1,1 @@
-enum DGHubButtonDesigns { simple, circle, line }
+enum DGHubButtonDesigns { simple, circle, line, blur }

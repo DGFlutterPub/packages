@@ -5,6 +5,7 @@ import 'package:dghub_video_player/src/widgets/loading.dart';
 import 'package:dghub_video_player/src/widgets/moving_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:screen_protector/screen_protector.dart';
 import 'package:subtitle_wrapper_package/subtitle_wrapper_package.dart';
 import 'package:video_player/video_player.dart';
@@ -29,10 +30,23 @@ class DGHubVideoPlayer extends StatefulWidget {
 class _DGHubVideoPlayerState extends State<DGHubVideoPlayer> {
   VideoPlayerController? controller;
   SubtitleController subtitleController = SubtitleController();
-  BoxFit fit = BoxFit.fill;
+  BoxFit fit = BoxFit.cover;
   bool isControlVisable = false;
   bool enabledSubtitleButton = false;
   bool showSubtitle = true;
+
+  Future<FileInfo?> checkCacheFor(String url) async {
+    final FileInfo? value = await DefaultCacheManager().getFileFromCache(url);
+    return value;
+  }
+
+  void cachedForUrl(String url) async {
+    await DefaultCacheManager().getSingleFile(url).then((value) {
+      if (kDebugMode) {
+        print('downloaded successfully done for $url');
+      }
+    });
+  }
 
   subStr(int a, int b) {
     try {
@@ -75,6 +89,7 @@ class _DGHubVideoPlayerState extends State<DGHubVideoPlayer> {
   }
 
   initPlay() async {
+    fit = widget.config.fit;
     protect();
     VideoPlayerOptions videoPlayerOption =
         VideoPlayerOptions(allowBackgroundPlayback: true, mixWithOthers: true);
@@ -82,12 +97,23 @@ class _DGHubVideoPlayerState extends State<DGHubVideoPlayer> {
     if (widget.config.autoLoad.contains('http://') ||
         widget.config.autoLoad.contains('https://')) {
       print('Video play with url');
-      controller = VideoPlayerController.networkUrl(
-          Uri.parse(
-            widget.config.autoLoad,
-          ),
-          videoPlayerOptions: videoPlayerOption,
-          httpHeaders: widget.config.httpHeaders);
+      if (widget.config.enabledCacheMode) {
+        final fileInfo = await checkCacheFor(widget.config.autoLoad);
+        if (fileInfo == null) {
+          cachedForUrl(widget.config.autoLoad);
+          controller = VideoPlayerController.networkUrl(
+              Uri.parse(
+                widget.config.autoLoad,
+              ),
+              videoPlayerOptions: videoPlayerOption,
+              httpHeaders: widget.config.httpHeaders);
+        } else {
+          File file = fileInfo.file;
+          controller = VideoPlayerController.file(file,
+              videoPlayerOptions: videoPlayerOption,
+              httpHeaders: widget.config.httpHeaders);
+        }
+      }
     } else if (await File(widget.config.autoLoad).exists()) {
       print('Video play with file');
       controller = VideoPlayerController.file(File(widget.config.autoLoad),
@@ -98,13 +124,6 @@ class _DGHubVideoPlayerState extends State<DGHubVideoPlayer> {
         widget.config.autoLoad,
         videoPlayerOptions: videoPlayerOption,
       );
-    } else {
-      controller = VideoPlayerController.networkUrl(
-          Uri.parse(
-            widget.config.autoLoad,
-          ),
-          videoPlayerOptions: videoPlayerOption,
-          httpHeaders: widget.config.httpHeaders);
     }
 
     if (controller != null) {
@@ -119,7 +138,13 @@ class _DGHubVideoPlayerState extends State<DGHubVideoPlayer> {
         } else {
           enabledSubtitleButton = false;
         }
+
+        if (widget.config.enabledLooping) {
+          controller!.setLooping(true);
+        }
+
         controller!.play();
+
         setState(() {});
       });
     }
@@ -220,20 +245,21 @@ class _DGHubVideoPlayerState extends State<DGHubVideoPlayer> {
               labelSize: 14,
             ),
           if (widget.config.watermark != null) widget.config.watermark!,
-          VideoControlWidget(
-            isFullScreen: widget.isFullScreen,
-            config: widget.config,
-            subtitleController: subtitleController,
-            controller: controller!,
-            onSubtitle: (s) {
-              showSubtitle = s;
-              setState(() {});
-            },
-            onFit: (f) {
-              fit = f;
-              setState(() {});
-            },
-          ),
+          if (widget.config.enabledControl)
+            VideoControlWidget(
+              isFullScreen: widget.isFullScreen,
+              config: widget.config,
+              subtitleController: subtitleController,
+              controller: controller!,
+              onSubtitle: (s) {
+                showSubtitle = s;
+                setState(() {});
+              },
+              onFit: (f) {
+                fit = f;
+                setState(() {});
+              },
+            ),
         ],
       ),
     );

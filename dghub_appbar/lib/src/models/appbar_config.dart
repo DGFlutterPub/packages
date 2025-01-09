@@ -13,6 +13,7 @@ class AppBarConfig {
   Function()? menuOnTap;
   Function()? micOnTap;
   bool enabledBottomLine;
+  Function()? onBack;
   PreferredSizeWidget? bottom;
   Color? shadowColor;
   bool forceElevated;
@@ -24,10 +25,12 @@ class AppBarConfig {
   final Function()? onTap;
   Function()? onTapLoginButton;
   Function()? onTapSignupButton;
+  List<Color>? iconColors;
   AppBarConfig({
     this.backWidget,
     this.isLogged = false,
     this.hideSignUp = false,
+    this.onBack,
     this.height,
     this.bottom,
     this.onTap,
@@ -47,6 +50,7 @@ class AppBarConfig {
     this.centerOnTap,
     this.menuOnTap,
     this.micOnTap,
+    this.iconColors,
     this.enabledBottomLine = false,
   });
 }

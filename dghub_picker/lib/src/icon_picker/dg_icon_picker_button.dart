@@ -45,23 +45,23 @@ class _DGHubIconPickerButtonState extends State<DGHubIconPickerButton> {
       },
       child: Container(
         decoration: BoxDecoration(
-            border: Border.all(width: 0.3, color: Colors.grey),
+            border: Border.all(width: 1, color: Colors.grey.withOpacity(0.5)),
             borderRadius: BorderRadius.circular(10),
-            color: theme.colorScheme.surface),
+            color: theme.cardColor),
         child: Row(
           children: [
             Container(
               width: 45,
               height: 45,
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.3, color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10),
-                  color: theme.primaryColor),
+                border:
+                    Border.all(width: 1, color: Colors.grey.withOpacity(0.5)),
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: Center(
                 child: Icon(
                   icon ?? Icons.add,
                   size: 20,
-                  color: Colors.white,
                 ),
               ),
             ),
@@ -83,6 +83,13 @@ class _DGHubIconPickerButtonState extends State<DGHubIconPickerButton> {
                 ],
               ),
             ),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 15,
+            ),
+            SizedBox(
+              width: 15,
+            )
           ],
         ),
       ),

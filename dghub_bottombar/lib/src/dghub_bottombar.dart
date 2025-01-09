@@ -22,8 +22,9 @@ class DGHubBottomBar extends StatefulWidget {
 class _DGHubBottomBarState extends State<DGHubBottomBar> {
   @override
   void initState() {
-    if (widget.config.backgroundColor != null) {
-      Tools.navBarColor(color: widget.config.backgroundColor!);
+    if (widget.config.backgroundColors != null) {
+      Tools.navBarColor(
+          color: widget.config.backgroundColors?.first ?? Colors.amber);
     }
 
     super.initState();

@@ -44,7 +44,7 @@ class VideoPlayerConfig {
       this.enabledRotateButton = true,
       this.enabledMuteButton = true,
       this.enabledVolume = true,
-      this.fit = BoxFit.contain,
+      this.fit = BoxFit.cover,
       this.enabledProtectMode = false,
       this.enabledAutoPlay = true,
       this.enabledLooping = true,

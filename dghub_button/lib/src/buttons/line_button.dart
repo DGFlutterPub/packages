@@ -26,10 +26,11 @@ class _LineButtonState extends State<LineButton> {
       height: widget.config.height,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: widget.config.color ?? theme.cardColor,
+          backgroundColor: widget.config.colors?.first ?? theme.cardColor,
           shape: RoundedRectangleBorder(
             side: BorderSide(
-              color: Tools.isColorDark(widget.config.color ?? theme.cardColor)
+              color: Tools.isColorDark(
+                      widget.config.colors?.first ?? theme.cardColor)
                   ? Colors.white
                   : Colors.black, //color
             ),
@@ -48,10 +49,10 @@ class _LineButtonState extends State<LineButton> {
                   indicatorType: Indicator.ballPulse,
 
                   /// Required, The loading type of the widget
-                  colors:
-                      Tools.isColorDark(widget.config.color ?? theme.cardColor)
-                          ? [Colors.white]
-                          : [Colors.black],
+                  colors: Tools.isColorDark(
+                          widget.config.colors?.first ?? theme.cardColor)
+                      ? [Colors.white]
+                      : [Colors.black],
 
                   /// Optional, The color collections
                   strokeWidth: 2,
@@ -74,7 +75,7 @@ class _LineButtonState extends State<LineButton> {
                         : widget.config.label ?? '',
                     style: TextStyle(
                         color: Tools.isColorDark(
-                                widget.config.color ?? theme.cardColor)
+                                widget.config.colors?.first ?? theme.cardColor)
                             ? Colors.white
                             : Colors.black,
                         fontSize: widget.config.labelSize),

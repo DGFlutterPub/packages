@@ -41,6 +41,10 @@ class ListItemSimple extends StatelessWidget {
                       style: TextStyle(fontSize: 12),
                     ),
                   ),
+                  if (config.rightWidget != null) config.rightWidget!,
+                  SizedBox(
+                    width: 15,
+                  ),
                   if (config.enabledArrow)
                     Icon(
                       Icons.arrow_forward_ios_outlined,

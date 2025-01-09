@@ -29,7 +29,7 @@ class _CircleButtonState extends State<CircleButton> {
           style: ElevatedButton.styleFrom(
             backgroundColor: widget.config.isError
                 ? Colors.red
-                : widget.config.color ?? theme.primaryColor,
+                : widget.config.colors?.first ?? theme.primaryColor,
             shape: const CircleBorder(),
             elevation: widget.config.elevation,
             padding: widget.config.padding, // foreground
@@ -44,7 +44,7 @@ class _CircleButtonState extends State<CircleButton> {
 
                     /// Required, The loading type of the widget
                     colors: Tools.isColorDark(
-                            widget.config.color ?? theme.primaryColor)
+                            widget.config.colors?.first ?? theme.primaryColor)
                         ? [Colors.white]
                         : [Colors.black],
 
@@ -61,7 +61,8 @@ class _CircleButtonState extends State<CircleButton> {
                           : widget.config.label ?? '',
                       style: TextStyle(
                           color: Tools.isColorDark(
-                                  widget.config.color ?? theme.primaryColor)
+                                  widget.config.colors?.first ??
+                                      theme.primaryColor)
                               ? Colors.white
                               : Colors.black,
                           fontSize: widget.config.labelSize),
@@ -82,8 +83,9 @@ class _CircleButtonState extends State<CircleButton> {
                                 ? widget.config.errorLabel ?? 'Try again'
                                 : widget.config.label!,
                             style: TextStyle(
-                                color: Tools.isColorDark(widget.config.color ??
-                                        theme.primaryColor)
+                                color: Tools.isColorDark(
+                                        widget.config.colors?.first ??
+                                            theme.primaryColor)
                                     ? Colors.white
                                     : Colors.black,
                                 fontSize: widget.config.labelSize),

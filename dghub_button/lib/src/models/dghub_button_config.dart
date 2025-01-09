@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class ButtonConfig {
+  bool shimmer;
   bool isLoading;
   bool isError;
   bool isSuccess;
@@ -14,25 +15,30 @@ class ButtonConfig {
   double? elevation;
   Function() onTap;
   EdgeInsets? padding;
-  Color? color;
+  List<Color>? colors;
   double labelSize;
   Widget? icon;
   double iconSize;
+  bool enabled;
+  bool lineMode;
   ButtonConfig(
       {this.successLabel,
       this.errorLabel,
+      this.shimmer = false,
       this.labelSize = 12,
-      this.color,
+      this.colors,
       this.elevation,
       this.radius = 100,
       this.margin,
-      this.padding = const EdgeInsets.fromLTRB(15, 8, 15, 8),
+      this.padding = const EdgeInsets.fromLTRB(15, 10, 15, 10),
       this.height,
+      this.lineMode = false,
       this.width,
       this.isError = false,
       this.isLoading = false,
       this.isSuccess = false,
       required this.onTap,
+      this.enabled = true,
       this.icon,
       this.iconSize = 25,
       this.label});

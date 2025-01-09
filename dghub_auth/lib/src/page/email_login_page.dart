@@ -138,7 +138,7 @@ class _EmailLoginPageState extends State<EmailLoginPage> {
                       ...widget.config.customWidget,
                       DGHubButton(
                           key: UniqueKey(),
-                          type: DGHubButtonType.circle,
+                          design: DGHubButtonDesigns.circle,
                           config: ButtonConfig(
                               isSuccess: widget.config.isSuccess,
                               isLoading: widget.config.isLoading,

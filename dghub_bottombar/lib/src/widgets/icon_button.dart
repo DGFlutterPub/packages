@@ -1,5 +1,7 @@
+import 'package:dghub_bottombar/src/tools/tools.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:gradient_icon/gradient_icon.dart';
 import 'package:lottie/lottie.dart';
 
 class DGIconButton extends StatelessWidget {
@@ -10,13 +12,13 @@ class DGIconButton extends StatelessWidget {
   final Color? badageColor;
   final Color? badageLabelColor;
   final double iconSize;
-  final Color? iconColor;
+  final List<Color>? iconColors;
   final Color? backgroundColor;
   final double backgroundRadius;
   const DGIconButton(
       {required this.icon,
       required this.iconSize,
-      this.iconColor,
+      this.iconColors,
       this.badageColor,
       this.badageLabel,
       this.badageLabelColor,
@@ -28,6 +30,7 @@ class DGIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
           color: backgroundColor,
@@ -44,7 +47,16 @@ class DGIconButton extends StatelessWidget {
         child: lottieIcon != null
             ? LottieBuilder.asset(
                 width: iconSize, height: iconSize, lottieIcon!)
-            : Icon(icon, size: iconSize, color: iconColor),
+            : ShaderMask(
+                blendMode: BlendMode.srcIn,
+                shaderCallback: (Rect bounds) =>
+                    Tools.gradient(iconColors ?? [theme.primaryColor])
+                        .createShader(bounds),
+                child: Icon(
+                  icon,
+                  size: iconSize,
+                ),
+              ),
       ),
     );
   }

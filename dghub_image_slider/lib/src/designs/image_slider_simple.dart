@@ -35,6 +35,7 @@ class _MobileSlideState extends State<_MobileSlide> {
           width: MediaQuery.sizeOf(context).width,
           height: widget.config.height,
           child: Swiper(
+            loop: false,
             outer: true,
             viewportFraction: 1,
             autoplay: widget.config.autoPlay ?? false,
@@ -72,6 +73,7 @@ class _DesktopSlide extends StatelessWidget {
     return SizedBox(
       height: size,
       child: Swiper(
+        loop: false,
         itemHeight: size,
         onIndexChanged: (value) {},
         itemBuilder: (BuildContext context, int index) {

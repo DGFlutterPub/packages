@@ -1,8 +1,9 @@
 import 'package:dghub_image_slider/dghub_image_slider.dart';
+import 'package:dghub_image_slider/src/designs/image_slider_cover.dart';
 import 'package:dghub_image_slider/src/designs/image_slider_simple.dart';
 import 'package:flutter/material.dart';
 
-enum ImageSliderDesigns { simple }
+enum ImageSliderDesigns { simple, cover }
 
 class DGHubImageSlider extends StatelessWidget {
   final ImageSliderDesigns design;
@@ -15,8 +16,8 @@ class DGHubImageSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (design) {
-      case ImageSliderDesigns.simple:
-        return ImageSliderSimple(
+      case ImageSliderDesigns.cover:
+        return ImageSliderCover(
           config: config,
         );
       default:

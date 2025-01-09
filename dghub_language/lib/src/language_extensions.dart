@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 typedef M = Map<dynamic, dynamic>;
 
-extension Extension on BuildContext {
+extension LanguageExtension on BuildContext {
   String tr(String key) {
     try {
       return Provider.of<DGHubLanguageProvider>(this, listen: true).get(key);

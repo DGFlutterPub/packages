@@ -18,6 +18,7 @@ class EditTextConfig {
   TextInputType? textInputType;
   TextEditingController controller;
   int? maxLine;
+  Color? backgroundColor;
   EditTextConfig(
       {this.label,
       required this.hint,
@@ -35,5 +36,6 @@ class EditTextConfig {
       this.maxLength,
       this.textInputType,
       this.maxLine,
+      this.backgroundColor,
       this.countryCode});
 }

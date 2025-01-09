@@ -72,7 +72,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             controller: emailEC)),
                     DGHubButton(
                         key: UniqueKey(),
-                        type: DGHubButtonType.circle,
+                        design: DGHubButtonDesigns.circle,
                         config: ButtonConfig(
                             isSuccess: widget.config.isSuccessForgotPassword,
                             isLoading: widget.config.isLoadingForgotPassword,
